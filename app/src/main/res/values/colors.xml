@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="keyboard_bg">#1A1A2E</color>
+    <color name="key_bg">#16213E</color>
+    <color name="key_bg_pressed">#0F3460</color>
+    <color name="key_text">#E0E0E0</color>
+    <color name="special_key_bg">#0F3460</color>
+    <color name="action_key_bg">#E94560</color>
+    <color name="pin_panel_bg">#12121F</color>
+    <color name="pin_item_bg">#1E1E35</color>
+    <color name="accent">#E94560</color>
+    <color name="accent_secondary">#533483</color>
+    <color name="tab_active">#E94560</color>
+    <color name="tab_inactive">#555577</color>
+    <color name="white">#FFFFFF</color>
+    <color name="primary">#0F3460</color>
+    <color name="primary_dark">#1A1A2E</color>
+    <color name="surface">#16213E</color>
+</resources>

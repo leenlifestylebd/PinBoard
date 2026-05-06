@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/keyboard_bg">
+
+    <!-- Pin Panel (hidden by default) -->
+    <LinearLayout
+        android:id="@+id/pin_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@color/pin_panel_bg"
+        android:paddingBottom="4dp">
+
+        <!-- Tabs -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:background="#0D0D1A">
+
+            <TextView
+                android:id="@+id/tab_all"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="All"
+                android:textColor="@color/tab_active"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tab_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="📝 Text"
+                android:textColor="@color/tab_inactive"
+                android:gravity="center"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tab_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="🖼 Image"
+                android:textColor="@color/tab_inactive"
+                android:gravity="center"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/tab_combo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3"
+                android:text="📝🖼 Both"
+                android:textColor="@color/tab_inactive"
+                android:gravity="center"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Combo paste options bar (hidden by default) -->
+        <LinearLayout
+            android:id="@+id/combo_option_bar"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:background="#0D0D1A"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
+
+            <TextView
+                android:id="@+id/btn_paste_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="📝 Text"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginEnd="3dp" />
+
+            <TextView
+                android:id="@+id/btn_paste_image"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="🖼 Image"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginEnd="3dp" />
+
+            <TextView
+                android:id="@+id/btn_paste_both"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3"
+                android:text="📝🖼 Both"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:background="@drawable/key_bg_action"
+                android:layout_marginEnd="3dp" />
+
+            <TextView
+                android:id="@+id/btn_paste_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:text="✕"
+                android:gravity="center"
+                android:textColor="#AAAACC"
+                android:textSize="14sp"
+                android:background="@drawable/key_bg_normal" />
+        </LinearLayout>
+
+        <!-- Pin RecyclerView (horizontal scroll) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pin_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:clipToPadding="false" />
+    </LinearLayout>
+
+    <!-- Toolbar row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:background="@color/special_key_bg"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp">
+
+        <!-- Pin toggle button -->
+        <TextView
+            android:id="@+id/key_pin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="📌"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="?attr/selectableItemBackground" />
+
+        <!-- Language switch -->
+        <TextView
+            android:id="@+id/key_lang"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="বাং"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="?attr/selectableItemBackground" />
+
+        <!-- Settings -->
+        <TextView
+            android:id="@+id/key_settings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="⚙"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:background="?attr/selectableItemBackground" />
+    </LinearLayout>
+
+    <!-- ENGLISH KEYBOARD LAYOUT -->
+    <LinearLayout
+        android:id="@+id/layout_english"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <!-- Row 1: QWERTYUIOP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView android:id="@+id/key_q" style="@style/KeyStyle" android:text="q" />
+            <TextView android:id="@+id/key_w" style="@style/KeyStyle" android:text="w" />
+            <TextView android:id="@+id/key_e" style="@style/KeyStyle" android:text="e" />
+            <TextView android:id="@+id/key_r" style="@style/KeyStyle" android:text="r" />
+            <TextView android:id="@+id/key_t" style="@style/KeyStyle" android:text="t" />
+            <TextView android:id="@+id/key_y" style="@style/KeyStyle" android:text="y" />
+            <TextView android:id="@+id/key_u" style="@style/KeyStyle" android:text="u" />
+            <TextView android:id="@+id/key_i" style="@style/KeyStyle" android:text="i" />
+            <TextView android:id="@+id/key_o" style="@style/KeyStyle" android:text="o" />
+            <TextView android:id="@+id/key_p" style="@style/KeyStyle" android:text="p" />
+        </LinearLayout>
+
+        <!-- Row 2: ASDFGHJKL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView android:id="@+id/key_a" style="@style/KeyStyle" android:text="a" />
+            <TextView android:id="@+id/key_s" style="@style/KeyStyle" android:text="s" />
+            <TextView android:id="@+id/key_d" style="@style/KeyStyle" android:text="d" />
+            <TextView android:id="@+id/key_f" style="@style/KeyStyle" android:text="f" />
+            <TextView android:id="@+id/key_g" style="@style/KeyStyle" android:text="g" />
+            <TextView android:id="@+id/key_h" style="@style/KeyStyle" android:text="h" />
+            <TextView android:id="@+id/key_j" style="@style/KeyStyle" android:text="j" />
+            <TextView android:id="@+id/key_k" style="@style/KeyStyle" android:text="k" />
+            <TextView android:id="@+id/key_l" style="@style/KeyStyle" android:text="l" />
+        </LinearLayout>
+
+        <!-- Row 3: ZXCVBNM + backspace -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView android:id="@+id/key_caps"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:text="⇧"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="18sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp" />
+
+            <TextView android:id="@+id/key_z" style="@style/KeyStyle" android:text="z" />
+            <TextView android:id="@+id/key_x" style="@style/KeyStyle" android:text="x" />
+            <TextView android:id="@+id/key_c" style="@style/KeyStyle" android:text="c" />
+            <TextView android:id="@+id/key_v" style="@style/KeyStyle" android:text="v" />
+            <TextView android:id="@+id/key_b" style="@style/KeyStyle" android:text="b" />
+            <TextView android:id="@+id/key_n" style="@style/KeyStyle" android:text="n" />
+            <TextView android:id="@+id/key_m" style="@style/KeyStyle" android:text="m" />
+
+            <TextView android:id="@+id/key_backspace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:text="⌫"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="18sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp" />
+        </LinearLayout>
+
+        <!-- Row 4: Space + Enter -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/key_space"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:text="space"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="13sp"
+                android:background="@drawable/key_bg_normal"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp" />
+
+            <TextView
+                android:id="@+id/key_enter"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="↵"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:background="@drawable/key_bg_action"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- BANGLA KEYBOARD LAYOUT -->
+    <LinearLayout
+        android:id="@+id/layout_bangla"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+
+        <!-- Bangla Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView android:id="@+id/key_bn_1" style="@style/KeyStyle" android:text="অ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_2" style="@style/KeyStyle" android:text="ই" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_3" style="@style/KeyStyle" android:text="উ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_4" style="@style/KeyStyle" android:text="এ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_5" style="@style/KeyStyle" android:text="ও" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_6" style="@style/KeyStyle" android:text="ক" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_7" style="@style/KeyStyle" android:text="গ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_8" style="@style/KeyStyle" android:text="ঙ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_9" style="@style/KeyStyle" android:text="ছ" android:textSize="18sp" />
+            <TextView android:id="@+id/key_bn_10" style="@style/KeyStyle" android:text="ঝ" android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Bangla Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
+
+            <TextView style="@style/KeyStyle" android:text="ট" android:textSize="18sp" android:id="@+id/key_bn_11" />
+            <TextView style="@style/KeyStyle" android:text="ঠ" android:textSize="18sp" android:id="@+id/key_bn_12" />
+            <TextView style="@style/KeyStyle" android:text="ড" android:textSize="18sp" android:id="@+id/key_bn_13" />
+            <TextView style="@style/KeyStyle" android:text="ণ" android:textSize="18sp" android:id="@+id/key_bn_14" />
+            <TextView style="@style/KeyStyle" android:text="ত" android:textSize="18sp" android:id="@+id/key_bn_15" />
+            <TextView style="@style/KeyStyle" android:text="দ" android:textSize="18sp" android:id="@+id/key_bn_16" />
+            <TextView style="@style/KeyStyle" android:text="ন" android:textSize="18sp" android:id="@+id/key_bn_17" />
+            <TextView style="@style/KeyStyle" android:text="প" android:textSize="18sp" android:id="@+id/key_bn_18" />
+        </LinearLayout>
+
+        <!-- Bangla Row 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:text="়"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="18sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:id="@+id/key_bn_hasanta" />
+
+            <TextView style="@style/KeyStyle" android:text="ব" android:textSize="18sp" android:id="@+id/key_bn_19" />
+            <TextView style="@style/KeyStyle" android:text="ভ" android:textSize="18sp" android:id="@+id/key_bn_20" />
+            <TextView style="@style/KeyStyle" android:text="ম" android:textSize="18sp" android:id="@+id/key_bn_21" />
+            <TextView style="@style/KeyStyle" android:text="য" android:textSize="18sp" android:id="@+id/key_bn_22" />
+            <TextView style="@style/KeyStyle" android:text="র" android:textSize="18sp" android:id="@+id/key_bn_23" />
+            <TextView style="@style/KeyStyle" android:text="ল" android:textSize="18sp" android:id="@+id/key_bn_24" />
+            <TextView style="@style/KeyStyle" android:text="শ" android:textSize="18sp" android:id="@+id/key_bn_25" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:text="⌫"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="18sp"
+                android:background="@drawable/key_bg_special"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:id="@+id/key_backspace_bn" />
+        </LinearLayout>
+
+        <!-- Bangla Row 4: space + enter -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="স্পেস"
+                android:gravity="center"
+                android:textColor="@color/key_text"
+                android:textSize="13sp"
+                android:background="@drawable/key_bg_normal"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:id="@+id/key_space_bn" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="↵"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:background="@drawable/key_bg_action"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="2dp"
+                android:id="@+id/key_enter_bn" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

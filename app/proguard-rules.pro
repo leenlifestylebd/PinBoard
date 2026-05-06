@@ -1,0 +1,2 @@
+-keep class com.pinboard.keyboard.** { *; }
+-dontwarn com.bumptech.glide.**
